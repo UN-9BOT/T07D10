@@ -8,6 +8,9 @@ void crSt(int, int);
 void crBu(int, int);
 void crAr(int, int);
 void crSe(int, int);
+void maxJ(int **, int, int);
+void minK(int j, int k, int data[][k]);
+void maxC(int j, int k, int data[][k]);
 
 int main(void) {
     menu();
@@ -76,6 +79,8 @@ void crSt(int j, int k) {
     } else {
         printf("n/a");
     }
+    maxC(j, k, data);
+    minK(j, k, data);
 }
 
 void crBu(int j, int k) {
@@ -183,4 +188,30 @@ void crSe(int j, int k) {
 
     free(mx);
     free(pArr);
+}
+
+void minK(int j, int k, int data[][k]) {
+    int temp = data[0][0];
+    for (int tk = 0; tk < k; tk++) {
+        for (int tj = 0; tj < j; tj++) {
+            if (data[tj][tk] < temp) {
+                temp = data[tj][tk];
+            }
+        }
+        printf("\n%d\n", temp);
+        temp = data[0][0];
+    }
+}
+
+void maxC(int j, int k, int data[][k]) {
+    int temp = data[0][0];
+    for (int tj = 0; tj < j; tj++) {
+        for (int tk = 0; tk < k; tk++) {
+            if (data[tj][tk] > temp) {
+                temp = data[tj][tk];
+            }
+        }
+        printf("\n%d\n", temp);
+        temp = data[0][0];
+    }
 }
